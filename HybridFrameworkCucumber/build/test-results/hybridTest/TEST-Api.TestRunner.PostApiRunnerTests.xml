@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Api.TestRunner.PostApiRunnerTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-01T11:22:09" hostname="DESKTOP-ACI7R7L" time="1.717">
+  <properties/>
+  <testcase name="runScenario[0](&quot;&quot;, &quot;Optional[User Registration]&quot;)" classname="Api.TestRunner.PostApiRunnerTests" time="1.717"/>
+  <system-out><![CDATA[
+@postApi
+Scenario Outline:                  # src/test/resources/Feature/Api/postApi.feature:12
+  Given user has the api 'users'   # Api.StepDefinition.PostApiStepDefs.userHasTheApiPath(java.lang.String)
+  When user hits 'john' and 'qa'   # Api.StepDefinition.PostApiStepDefs.userHitsNameAndJob(java.lang.String,java.lang.String)
+https://reqres.in/api/users
+{Content-Type=application/json;charset=UTF-8}
+{"name":"john","job":"qa","id":"420","createdAt":"2023-06-01T11:22:10.778Z"}
+  And calls the api with body      # Api.StepDefinition.PostApiStepDefs.callsTheApiWithBody()
+2023-06-01T11:22:10.778Z
+  Then it will return created data # Api.StepDefinition.PostApiStepDefs.itWillReturnCreatedData()
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

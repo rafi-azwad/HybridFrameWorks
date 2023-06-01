@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Api.TestRunner.PatchApiRunnerTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-01T11:22:06" hostname="DESKTOP-ACI7R7L" time="2.436">
+  <properties/>
+  <testcase name="runScenario[0](&quot;&quot;, &quot;Optional.empty&quot;)" classname="Api.TestRunner.PatchApiRunnerTests" time="2.436"/>
+  <system-out><![CDATA[
+@patchApi
+Scenario Outline:                         # src/test/resources/Feature/Api/patchApi.feature:11
+  Given user got the base api 'users/370' # Api.StepDefinition.PatchApiStepDefs.userGotTheBaseApiPath(java.lang.String)
+  When user hits patched 'Athlete'        # Api.StepDefinition.PatchApiStepDefs.userHitsPatchedJob(java.lang.String)
+https://reqres.in/api/users/370
+{Content-Type=application/json;charset=UTF-8}
+{"job":"Athlete","id":"888","createdAt":"2023-06-01T11:22:08.990Z"}
+  And calls the api with patched body     # Api.StepDefinition.PatchApiStepDefs.callsTheApiWithPatchedBody()
+null
+  Then it will return patched data        # Api.StepDefinition.PatchApiStepDefs.itWillReturnPatchedData()
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

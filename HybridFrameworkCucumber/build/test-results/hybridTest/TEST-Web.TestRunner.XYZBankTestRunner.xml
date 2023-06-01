@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Web.TestRunner.XYZBankTestRunner" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-01T11:22:21" hostname="DESKTOP-ACI7R7L" time="26.734">
+  <properties/>
+  <testcase name="runScenario[0](&quot;Manager adds a customer&quot;, &quot;Optional[Bank Manager Login (addCustomer)]&quot;)" classname="Web.TestRunner.XYZBankTestRunner" time="12.192"/>
+  <testcase name="runScenario[1](&quot;Manager opens an account by linking newly created customer&quot;, &quot;Optional[Bank Manager Login (openAccount)]&quot;)" classname="Web.TestRunner.XYZBankTestRunner" time="6.873"/>
+  <testcase name="runScenario[2](&quot;Manager deletes the new customer&quot;, &quot;Optional[Bank Manager Login (deleteCustomer)]&quot;)" classname="Web.TestRunner.XYZBankTestRunner" time="7.669"/>
+  <system-out><![CDATA[
+@addCustomer
+Scenario Outline: Manager adds a customer                         # src/test/resources/Feature/Web/bml1AddCustomer.feature:14
+  Given Manager lands on the XYZ bank home page                   # Web.StepDefinition.BML1AddCustomerStepDef.managerLandsOnTheXYZBankHomePage()
+  When manager clicks on bank manager login option                # Web.StepDefinition.BML1AddCustomerStepDef.managerClicksOnBankManagerLoginOption()
+  And clicks on add customer tab                                  # Web.StepDefinition.BML1AddCustomerStepDef.clicksOnAddCustomerTab()
+data verification=> first name: john, last Name: test, post code: 1111
+  And sends customer 'john' and 'test' and '1111'                 # Web.StepDefinition.BML1AddCustomerStepDef.sendsCustomerFirstNameAndLastNameAndPostCode(java.lang.String,java.lang.String,java.lang.String)
+  And clicks on add customer button                               # Web.StepDefinition.BML1AddCustomerStepDef.clicksOnAddCustomerButton()
+Customer added successfully with customer id :6
+  Then manager closes confirmation alert for newly added customer # Web.StepDefinition.BML1AddCustomerStepDef.managerClosesConfirmationAlertForNewlyAddedCustomer()
+
+@openAccount
+Scenario: Manager opens an account by linking newly created customer # src/test/resources/Feature/Web/bml2OpenAccount.feature:4
+  Given Manager clicks on open account tab                           # Web.StepDefinition.BML2AddAccountStepDef.managerClicksOnOpenAccountTab()
+7
+final xpath: [[ChromeDriver: chrome on WINDOWS (a90e0f94d3700da494591b1216c3fe55)] -> xpath: ((//div[@class="ng-scope"]//descendant::select)[1]//option)[7]]
+  When manager selects customer name                                 # Web.StepDefinition.BML2AddAccountStepDef.managerSelectsCustomerName()
+  And selects currency type                                          # Web.StepDefinition.BML2AddAccountStepDef.selectsCurrencyType()
+  And clicks on process button                                       # Web.StepDefinition.BML2AddAccountStepDef.clicksOnProcessButton()
+Account created successfully with account Number :1016
+  Then manager closes confirmation alert for account creation        # Web.StepDefinition.BML2AddAccountStepDef.managerClosesConfirmationAlertForAccountCreation()
+
+@deleteCustomer
+Scenario: Manager deletes the new customer           # src/test/resources/Feature/Web/bml3DeleteCustomer.feature:4
+  Given manager clicks on the customers tab          # Web.StepDefinition.BML3DeleteCustomerStepDefinition.managerClicksOnTheCustomersTab()
+  When manager searches for the newly added customer # Web.StepDefinition.BML3DeleteCustomerStepDefinition.managerSearchesForTheNewlyAddedCustomer()
+  Then manager deletes the customer                  # Web.StepDefinition.BML3DeleteCustomerStepDefinition.managerDeletesTheCustomer()
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 14716
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Jun 01, 2023 5:22:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 113
+Jun 01, 2023 5:22:23 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.7.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>

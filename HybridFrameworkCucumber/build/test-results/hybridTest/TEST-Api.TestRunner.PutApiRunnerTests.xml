@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Api.TestRunner.PutApiRunnerTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-01T11:22:10" hostname="DESKTOP-ACI7R7L" time="1.917">
+  <properties/>
+  <testcase name="runScenario[0](&quot;&quot;, &quot;Optional.empty&quot;)" classname="Api.TestRunner.PutApiRunnerTests" time="1.917"/>
+  <system-out><![CDATA[
+@putApi
+Scenario Outline:                     # src/test/resources/Feature/Api/putApi.feature:12
+  Given user got the api 'users/580'  # Api.StepDefinition.PutApiStepDefs.userGotTheApiPath(java.lang.String)
+  When user hits 'fighter'            # Api.StepDefinition.PutApiStepDefs.userHitsJob(java.lang.String)
+https://reqres.in/api/users/580
+{Content-Type=application/json;charset=UTF-8}
+{"job":"fighter","id":"501","createdAt":"2023-06-01T11:22:12.751Z"}
+  And calls the api with changed body # Api.StepDefinition.PutApiStepDefs.callsTheApiWithChangedBody()
+null
+  Then it will return updated data    # Api.StepDefinition.PutApiStepDefs.itWillReturnUpdatedData()
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
